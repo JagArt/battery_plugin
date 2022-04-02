@@ -1,6 +1,6 @@
+import 'package:battery_plugin/battery_plugin.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:battery_plugin/battery_plugin.dart';
 
 void main() {
   const MethodChannel channel = MethodChannel('battery_plugin');
@@ -9,7 +9,7 @@ void main() {
 
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
+      return 42;
     });
   });
 
@@ -18,6 +18,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await BatteryPlugin.platformVersion, '42');
+    expect(await BatteryPlugin.batteryLevel, 42);
   });
 }
